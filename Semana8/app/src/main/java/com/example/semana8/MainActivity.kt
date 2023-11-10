@@ -199,7 +199,7 @@ fun ArtworkDisplay(
         contentDescription = stringResource(id = R.string.pic2),
         modifier = modifier
             .fillMaxWidth()
-            .heightIn(max = 540.dp),
+            .heightIn(max = 720.dp),
         contentScale = ContentScale.FillWidth
     )
 }
