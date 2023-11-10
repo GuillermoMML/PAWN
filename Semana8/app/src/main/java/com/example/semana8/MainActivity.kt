@@ -1,4 +1,4 @@
-package com.luksfluks.artspace
+package com.example.semana8
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,19 +10,16 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
@@ -38,14 +35,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.semana8.ui.theme.Semana8Theme
-import com.luksfluks.artspace.ui.theme.ArtSpaceTheme
+import java.time.format.TextStyle
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,13 +59,14 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun ArtSpaceScreen(modifier: Modifier = Modifier) {
-    val primeraImagen = R.drawable.pic1
-    val segundaImagen = R.drawable.pic2
-    val terceraImagen = R.drawable.pic3
+    val primeraImagen = R.drawable.pic1_guille
+    val segundaImagen = R.drawable.pic2_guille
+    val terceraImagen = R.drawable.pic3_guille
 
     var title by remember {
         mutableStateOf(R.string.pic1)
     }
+
     var information by remember {
         mutableStateOf(R.string.pic1_info)
     }
@@ -85,9 +82,10 @@ fun ArtSpaceScreen(modifier: Modifier = Modifier) {
     ) {
         item {
             Text(
-                text = "ArtSpace",
-                fontSize = 16.sp,
+                text = "Fotos Bonitas",
+                fontSize = 30.sp,
                 fontWeight = FontWeight.Bold,
+                style = androidx.compose.ui.text.TextStyle(fontStyle = FontStyle.Italic),
                 color = colorResource(id = R.color.gray_900)
             )
             ArtworkDisplay(currentArtwork = currentArtwork)
@@ -234,7 +232,7 @@ fun ArtworkTitle(
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    ArtSpaceTheme {
+    Semana8Theme {
         ArtSpaceScreen()
     }
 }
